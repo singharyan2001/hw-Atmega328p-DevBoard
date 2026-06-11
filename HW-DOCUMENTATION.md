@@ -32,6 +32,21 @@ Platform: Udemy
 5. Applications:
     1. Voltage Divider Circuit with variable output via potentiometer.
     2. Variable Resistor / Rheostat
+6. Functional Diagram and Schematic Symbol:
+    ![Potentiometer Diagram](imgs/image.png)
 
-![Potentiometer Diagram](imgs/image.png)
-
+### Introduction to Capacitor
+1. A Capacitor is a passive two terminal electrical component that stores energy in the form of electric field.
+2. Applications of a capacitor - Energy Storage, Filtering.
+3. Capacitive reactance (Xc)
+4. Resistor provides opposition to current, and capacitive reactance provides opposition to signal or current.
+5. The Capacitve reactance of capacitor decided whether the signal will be bypassed or not.
+6. In real world, the build of the capacitor consitutes some amount of resistor, inductor and then capacitor.
+7. The resistor present in the capacitor is called the Equivalent Series Resistance [ESR] and exhibits the property of resistance.
+8. The inductor present in the capacitor is called the Equivalent Series Inductance and exhibts the property of inductance reactance.
+9. The Capacitance presents in the capacitor exhibits the property of Capacitive Reactance (Xc).
+10. The Combined the effect of ESR, ESL and Xc contributes to the Impedance (Z) of the capacitor.
+11. The Impedance of the Capacitor will decide if a signal will be bypassed or not. so if the impedance provided by the capacitor is low, then signal will be bypassed by the capacitor towards the ground. and if high, then signal will not be bypassed.
+12. To find out at what frequencies does the capacitor provides what impedance? - The Impedance VS Frequency plot of the Capacitor in the datasheet or manufacturer website.
+13. Xc = 1/wc , where w = 2*pi*f --> Xc = 1/2*pi*f*c
+14. 
