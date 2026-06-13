@@ -11,7 +11,7 @@ Platform: Udemy
 ## Overview
 
 
-## Section 01: Introduction to Electronics Components
+## Module 01: Introduction to Electronics Components
 
 ### Introduction to Resistors
 1. Resistor is a passive two terminal electrical component that implements electrical resistance as a circuit element.
@@ -53,7 +53,7 @@ Platform: Udemy
 
 ---
 
-## Section 2: Intro to Training Hardware & Development Process
+## Module 2: Intro to Training Hardware & Development Process
 Ideal/Primary Hardware Development Process:
 ```mermaid
 graph TD
@@ -161,3 +161,72 @@ The Hardware is then assembled in the enclosure and the firmware is also deploye
 
 ### Hardware Block Diagram Design
 
+```mermaid
+graph TD
+    %% Blocks
+    PSU[Power Supply]
+    
+    subgraph HOST
+        MCU[Microcontroller]
+        PROGDBG[Programmer / Debugger Interface]
+    end
+
+    subgraph MTRDRV
+        MD[Motor Driver]
+        MDC[Motor Driver Connector]
+    end
+
+    subgraph DISPLAY
+        BCD[Binary to BCD Decoder]
+        SSD[Seven Segment Display]
+    end
+
+    SWI[Switch Input]
+    POT[Potentiometer]
+    LED[RGB LED]
+
+    %% Connectors
+    PSU ==> MCU
+    PROGDBG .-> MCU
+    
+    MCU --> MD
+    MD --> MDC
+
+    MCU --> BCD
+    BCD --> SSD
+
+    MCU --> SWI & POT & LED
+```
+
+## Module 02: Hardware Design & Development
+
+### Power Supply unit [PSU] Design
+
+#### System power budget calculation
+Power budget is the power utilization and power consumption calculation associated with the system.
+
+**Power Supply Consumption Table**
+| Component         | Voltage   | Current   | Power |
+|:------------------|:----------|:----------|:------|
+| ATMEGA328P        | 5V        | 300mA     | 1.5W  |
+| MTR DRV VCC1      | 5V        | 60mA      | 0.3W  |
+| MTR DRV VCC2      | 12V       | 100mA     | 1.2W  |
+| BIN2BCD DECODER   | 5V        | 60mA      | 0.3W  |
+| Switch Input      | 5V        | 1mA       | 0.005W|
+| Potentiometer     | 5V        | 1mA       | 0.005W|
+| RGB LED           |           |           |       |
+| PSU (5V RAIL)     | 5V        | 422mA     | 2.11W |
+| PSU IN (12V RAIL) | 12V       |           |       |
+
+Note:
+1. The LDO being used has an efficientcy of 50%.
+2. Due to 50% efficientcy, to provide 2.11W at the 5V rail, we would need to provide double the Wattage at the power input side i.e. 2.11*2 = 4.22W. [Input Power: 4.22, Output Power: 2.11W]
+3. To Calculate the Input Current needed, we would need to use `P=VI`, therefore `I=P/V` i.e. I=4.22/12 >> 0.351A i.e. 351mA.
+4. 351mA is the current requirement for the input current to power the 5V rail, but we also need another 100mA at the output rail to power the Motor Driver section, therefore the total current conumption would br 351+100 = 451mA.
+5. Therefore:
+    1. `Input Voltage` >> 12V
+    2. `Input Current` >> 451mA
+    3. `Output voltage@Current` >> 351mA@5V & 12V@100mA.
+    4. LDO Efficiency >> 50%
+
+#### Power Supply IC
