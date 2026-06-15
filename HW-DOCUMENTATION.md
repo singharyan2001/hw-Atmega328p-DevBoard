@@ -221,7 +221,7 @@ Power budget is the power utilization and power consumption calculation associat
 Note:
 1. The LDO being used has an efficientcy of 50%.
 2. Due to 50% efficientcy, to provide 2.11W at the 5V rail, we would need to provide double the Wattage at the power input side i.e. 2.11*2 = 4.22W. [Input Power: 4.22, Output Power: 2.11W]
-3. To Calculate the Input Current needed, we would need to use `P=VI`, therefore `I=P/V` i.e. I=4.22/12 >> 0.351A i.e. 351mA.
+3. To Calculate the Input Current needed, we would need to use `P=VI`, therefore `I=P/V` i.e. I=4.22/12 >> 0.351A it.e. 351mA.
 4. 351mA is the current requirement for the input current to power the 5V rail, but we also need another 100mA at the output rail to power the Motor Driver section, therefore the total current conumption would br 351+100 = 451mA.
 5. Therefore:
     1. `Input Voltage` >> 12V
@@ -229,4 +229,37 @@ Note:
     3. `Output voltage@Current` >> 351mA@5V & 12V@100mA.
     4. LDO Efficiency >> 50%
 
-#### Power Supply IC
+#### Power Supply Design
+1. Power Supply IC - 7805 from ST
+2. Power Supply Design Components:
+    1. Power Input DC Jack with Revere Polarity Protection via schottky Diode.
+    2. Input Filtering Capacitor Section
+    3. LM708 IC Section
+    4. Output Filtering Capacitor Section
+    5. PWR Led Indication Section
+3. Reverse Polarity Protection Design
+    1. General Purpose Diode - Threshold Voltage: 0.7V, therefore for 1A of current -> P = VI, `P = 1(A) * 0.7 = 0.7W` of power dissipation.
+    2. Schottky diode - Threshold voltage: 0.3, therefore for 1A of current -> P = VI, `P = 1(A) * 0.3 = 0.3W` of power dissipation.
+    3. Therefore the schottky diode has less power consumption, which would then be the better choice in selection.
+    4. Three critical parameters to consider when selecting a schottky diode to ensure efficiency, safety, and reliability are `Threshold Voltage`, `Current Rating`, and `Reverse Voltage Rating`.
+        1. Threshold Voltage, which is commonly called the forward voltage drop (`Vf`) is the minimum voltage required accross the diode terminals to make it conduct current in the forward direction.
+            1. For a standard Schottky diode, this typically ranges from 0.15V to 0.45V, which is significantly lower than the 0.7 V drop of a standard silicon diode.
+            2. A lower Vf means lower power dissipation (P = I*Vf) and higher efficiency, maing it ideal for low-voltage or battery-powered applications.
+            3. Note: Vf increases as the forward current and operating temperature increases.
+        2. Current Rating, which is commonly specified as Average Forward Rectified Current (`If(av)`) is the maximum amount of current the diode can safely conduct continuously in the forward direction without overheating or failing.
+            1. This parameter dictates how much load current the diode can handle under normal operating conditions.
+            2. Selecting a diode with a current rating at least 20% to 50% higher than your circuit's peak continuous operating current to provide a safety margin.
+            3. Also check the Peak Surge Current (`Ifsm`) if the circuit experiences brief, massive current spikes during startup.
+        3. Reverse Voltage Rating, which is commonly specified as Peak Repetitve Reverse Voltage (`Vrrm`) is the maximum voltage the diode can withstand when it is reverse-biased (blocking current) before it breaks down.
+            1. If the voltage in reverse exceeds this limit, the diode will enter avalanche breakdown, conduct heavily in reverse and likely destroy itself.
+            2. Choose a diode where Vrmm is atlease 1.5 to 2 times higher than the maximum voltage expected in your circuit.
+            3. This buffer protects the diode from inductive voltage spikes and ringing.
+            4. Note: Schottky diode inherently have higher reverse leakage currents than standard silicon diodes, and this leakage increases drastically at high temperatures.
+    5. Diode selected for the circuit: SS14
+4. Input & Output Filtering Capacitor Section
+    1. Local Capacitor - to fullfil the sudden current requirement by the circuit at startup.
+    2. The Local Capacitors are connected at both the input and output section of the LM708 IC.
+    3. Lower ESR will allow fast charging of the capacitor.
+    4. A lower ESR capacitor like 0.1 uf at input and output to allow the capacitor to charge faster, but also filter high frequency noise on the DC Line.
+    5. The Bypass Capacitor (0.1 uf) is integrated at input and output sections to filter out higher frequency and also lower the ESR for fast charging of the capacitors.
+5.  PWR Led Indication Section
