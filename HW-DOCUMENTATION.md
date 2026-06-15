@@ -255,7 +255,7 @@ Note:
             2. Choose a diode where Vrmm is atlease 1.5 to 2 times higher than the maximum voltage expected in your circuit.
             3. This buffer protects the diode from inductive voltage spikes and ringing.
             4. Note: Schottky diode inherently have higher reverse leakage currents than standard silicon diodes, and this leakage increases drastically at high temperatures.
-    5. Diode selected for the circuit: SS14
+    5. Diode selected for  the circuit: SS14
 4. Input & Output Filtering Capacitor Section
     1. Local Capacitor - to fullfil the sudden current requirement by the circuit at startup.
     2. The Local Capacitors are connected at both the input and output section of the LM708 IC.
@@ -263,3 +263,9 @@ Note:
     4. A lower ESR capacitor like 0.1 uf at input and output to allow the capacitor to charge faster, but also filter high frequency noise on the DC Line.
     5. The Bypass Capacitor (0.1 uf) is integrated at input and output sections to filter out higher frequency and also lower the ESR for fast charging of the capacitors.
 5.  PWR Led Indication Section
+    1. Forward Voltage (Vf)
+    2. Maximum current (Imax)
+
+### Microcontroller Design Section
+
+
