@@ -267,5 +267,30 @@ Note:
     2. Maximum current (Imax)
 
 ### Microcontroller Design Section
+1. MCU Deepdive - understood datasheet sections, peripherals, and pinouts.
+2. MCU Vcc and AVcc Filtering and Bulk Capacitor considerations
+3. MCU Reset Switch design
+4. MCU Debug/Programmer interface design
+5. MCU external oscillator design
 
+
+
+### Motor Driver Design
+1. L298D Driver IC - understood pinout of the IC, pin connections of motor with driver, and flyback diodes application with motors and drivers.
+2. L293D Driver IC Pinouts
+    1. VCC1 -> 5V
+    2. VCC2 -> 4.5V to 36V
+    3. 4 * GND
+    4. 1,2 EN -> PWM Pin for Motor A
+    5. 1A -> DIR 1 Pin for Motor A
+    6. 1Y -> Output Terminal 1 for Motor A
+    7. 2Y -> Output Terminal 2 for Motor A
+    8. 2A -> DIR 2 Pin for Motor A
+    9. 4A -> DIR 4 Pin for Motor B
+    10. 4Y -> Output Terminal 1 for Motor B
+    11. 3Y -> Output Terminal 2 for Motor B
+    12. 3A -> DIR 3 Pin for Motor B
+    13. 3,4 EN -> PWM Pin for Motor B
+
+### Seven Segment Display Design
 
