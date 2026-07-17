@@ -266,7 +266,7 @@ Note:
     1. Forward Voltage (Vf)
     2. Maximum current (Imax)
 
-### Microcontroller Design Section
+### Microcontroller Design
 1. MCU Deepdive - understood datasheet sections, peripherals, and pinouts.
 2. MCU Vcc and AVcc Filtering and Bulk Capacitor considerations
 3. MCU Reset Switch design
@@ -291,6 +291,72 @@ Note:
     11. 3Y -> Output Terminal 2 for Motor B
     12. 3A -> DIR 3 Pin for Motor B
     13. 3,4 EN -> PWM Pin for Motor B
+3. The L293D is a Dual H-Bridge Motor Driver.
+    1. Note - The "D" in L293D is extremely important - it stands for built-in Darlington arrays with internal flyback diodes.
+    2. When a spinning motor is suddenly switched off, its collapsing magnetic firld kicks back a massive, high voltage spike of reverse current.
+    3. The "D" version has internal clamp diodes that catch this spike and dump it safely into the power rail, protecting your logic circuit.
+4. L293D Driver Control [Example: Motor A Side]
+    1. `VCC1` is the Logic Voltage
+    2. `VCC2` is the Motor Voltage
+    3. `1,2 EN` is the Enable pin, Think of this as the "Throttle".
+    4. `1A` & `2A` are the Input pins, Think of these as the "Steering Wheel", connected to standard MCU GPIO Pins.
+    5. `1Y` & `2Y` are the Output pins, Connect them directly to the wires of the DC Motor.
+    6. `GND` is the Sytem Ground.
+    7. Note: The Four Ground Pins sit in the center of the IC, they act as primitive thermal heatsink, they are ment to be soldered to a wide copper pour on the PCB to wick heat away from the silicon.
+5. The Logic Truth Table to move Motor A
+    | `1,2 EN` (Throttle)   | `1A` (Steering 1) | `2A` (Steering 2) | Physical Motor Output |
+    |:----------------------|:------------------|:------------------|:----------------------|
+    | PWM                   | HIGH              | LOW               | SPIN FORWARD DIRECTION|
+    | PWM                   | LOW               | HIGH              | SPIN REVERSE DIRECTION|
+    | HIGH                  | HIGH              | HIGH              | ACTIVE BRAKE          |
+    | HIGH                  | LOW               | LOW               | ACTIVE BRAKE          |
+    | LOW                   | X                 | X                 | COAST [HIGH-Z]        |
+
 
 ### Seven Segment Display Design
-
+1. Seven Segment Display
+    1. A 7-segment display is an electronic component used to display numbers (and some basic letters) using seven individual light-emitting segments arranged in a figure-8 pattern.
+    2. It can be driven via microcontroller's GPIO pins or via a driver IC interface like CD4511BE.
+    3. There are two main electrical configurations for 7-segment displays. They look identical on the outside but wire up completely differently:
+        1. Common Cathode (CC): All the negative terminals (cathodes) of the LEDs are tied together to ground. You turn a segment ON by sending a HIGH voltage (logic 1) to its pin.
+        2. Common Anode (CA): All the positive terminals (anodes) of the LEDs are tied together to VCC (power). You turn a segment ON by pulling its pin LOW to ground (logic 0).
+    4. Most single-digit 7-segment displays have 10 pins (5 on the top, 5 on the bottom).
+        1. Common Pins: The middle pin on both the top and bottom rows connects to the common terminal (either Ground for CC or Power for CA).
+        2. Segment Pins: The remaining 8 pins connect directly to the individual segments (a through g and DP).
+    5. To display a specific number, you must light up a specific combination of segments. Here is the logic for a Common Cathode display:
+        |Digit  | a | b | c | d | e | f | g |
+        |:------|:--|:--|:--|:--|:--|:--|:--|
+        | 0     | 1 | 1 | 1 | 1 | 1 | 1 | 0 |
+        | 1     | 0 | 1 | 1 | 0 | 0 | 0 | 0 |
+        | 2     | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
+        | 3     | 1 | 1 | 1 | 1 | 0 | 0 | 1 |
+        | 4     | 0 | 1 | 1 | 0 | 0 | 1 | 1 |
+        | 5     | 1 | 0 | 1 | 1 | 0 | 1 | 1 |
+        | 6     | 1 | 0 | 1 | 1 | 1 | 1 | 1 |
+        | 7     | 1 | 1 | 1 | 0 | 0 | 0 | 0 |
+        | 8     | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+        | 9     | 1 | 1 | 1 | 1 | 0 | 1 | 1 |
+    6. Critical Hardware Requirement
+        1. Current-Limiting Resistors: You must place a resistor (typically 220Ω to 470Ω) in series with each individual segment pin.
+        2. Warning: Connecting the common pin directly to power/ground without resistors on the segments will burn out the LEDs instantly.
+2. Seven Segment Display Driver IC - CD4511BE [BCD to Seven Segement Driver IC]
+    1. The CD4511BE is a popular CMOS Binary Coded Decimal (BCD) to 7-Segment Latch/Decoder/Driver integrated circuit.
+    2. It is a popular CMOS Binary Coded Decimal (BCD) to 7-Segment Latch/Decoder/Driver integrated circuit. It is primarily used to take a 4-bit digital binary input and translate it into the signals required to control and illuminate a numeric 7-segment LED display directly.
+    3. Key Technical Specifications:
+        1. Logic Family: 4000 CMOS
+        2. Operating Voltage Range: Wide supply range from 3V to 18V.
+        3. Output Sourcing Current: Up to 25 mA per segment, allowing it to directly drive LEDs without external buffer transistors.
+        4. Compatible Display Type: Exclusively designed for Common Cathode 7-segment displays.
+        5. Operating Temperature: Military-grade resilience ranging from -55°C to +125°C.
+    4. Functional Core Blocks: The IC combines three major electronic components into a single monolithic package:
+        1. 4-Bit Storage Latch: Holds and retains the BCD input data so that the display remains stable even if the central processor changes tasks or multiplexes data.
+        2. BCD-to-7-Segment Decoder: Decodes standard 8421 binary values (0000 through 1001) into appropriate individual alphanumeric segment activations (a through g).
+        3. NPN Bipolar Output Drivers: Integrated high-current output components that physically source the electricity needed to light up the display segments safely.
+    5. CD4511BE Pinout:
+        1. 4 standard inputs (A, B, C, D)
+        2. 7 Segment outputs a to g.
+        3. Lamp Test (LT): Overrides all data inputs to light up every display segment at once. This lets you quickly check for dead display segments.
+        4. Blanking Input (BL): Instantly turns off or pulse-modulates all segments. It is commonly used for energy saving or regulating display brightness.
+        5. Latch Enable (LE / Strobe): When toggled, it locks in the current input value so the display freezes on that specific number while the input signals change.
+3. Circuit Understanding for Schematics
+4. 
