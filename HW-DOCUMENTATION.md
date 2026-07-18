@@ -359,4 +359,11 @@ Note:
         4. Blanking Input (BL): Instantly turns off or pulse-modulates all segments. It is commonly used for energy saving or regulating display brightness.
         5. Latch Enable (LE / Strobe): When toggled, it locks in the current input value so the display freezes on that specific number while the input signals change.
 3. Circuit Understanding for Schematics
-4. 
+
+### Switch, Preset, & RGB Led Designs
+1. Input Switch design is resued from the reset switch design
+2. Preset design is basically potentiometer design which is used to simulate an analog sensor.
+3. RGB led being used is 3 control signal type rgb led, with no host controller. its different from the WS2812b led.
+
+## Module 03: PCB Layout Design & Development
+1. Module 03 contents: PCB Stackup, DXF file, and Component placement planning, placement, layout design, and Intro to ULP.
