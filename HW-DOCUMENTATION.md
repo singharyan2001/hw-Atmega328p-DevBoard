@@ -366,4 +366,26 @@ Note:
 3. RGB led being used is 3 control signal type rgb led, with no host controller. its different from the WS2812b led.
 
 ## Module 03: PCB Layout Design & Development
-1. Module 03 contents: PCB Stackup, DXF file, and Component placement planning, placement, layout design, and Intro to ULP.
+**Module 03 contents:**
+- PCB Stackup
+- DXF file
+- Component placement planning & Layout placement
+- Layout design
+- Intro to ULP
+
+### PCB Layer Stack Up
+1. A Layer stack up refers to arrangement of copper layers and insulating layers that make up a PCB prior to board layout design.
+2. PCB Layers Breakdown:
+    1. Silkscreen
+    2. [GREEN] Mask
+    3. Top Copper       |
+    4. Core             | This forms the Board Thickness in a PCB (2 layer)
+    5. Bottom Copper    |
+    6. [Green] Mask
+    7. Silkscreen
+
+### Introduction to DXF File
+1. 3D View can be exported in two file formats i.e. STEP & DXF File formats for Mechanical Integration
+2. DXF stands for Data Exchange Format, which is a CAD data file format that enables exchange of data between two software's.
+
+---
