@@ -6122,20 +6122,12 @@
 		(uuid "f9a48d30-8631-43f4-abe4-2c0aef855bec")
 	)
 	(no_connect
-		(at 74.93 104.14)
-		(uuid "2a997e30-aad6-41e0-bc64-565ee2a6ffa9")
-	)
-	(no_connect
 		(at 74.93 96.52)
 		(uuid "bae409d8-e2e6-4eb5-8970-871f5e02e621")
 	)
 	(no_connect
 		(at 254 82.55)
 		(uuid "cf577305-0204-4d39-9268-33a227ba5740")
-	)
-	(no_connect
-		(at 74.93 101.6)
-		(uuid "d36eb8a5-6046-45a3-9527-0d6443ddabf5")
 	)
 	(wire
 		(pts
@@ -7159,16 +7151,6 @@
 	)
 	(wire
 		(pts
-			(xy 194.31 46.99) (xy 198.12 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "678bb5cc-e9d5-4659-8ea6-3401afab482e")
-	)
-	(wire
-		(pts
 			(xy 40.64 180.34) (xy 48.26 180.34)
 		)
 		(stroke
@@ -7376,16 +7358,6 @@
 			(type default)
 		)
 		(uuid "7c687e8a-ff3d-4978-a470-5032e5b8ca33")
-	)
-	(wire
-		(pts
-			(xy 194.31 43.18) (xy 198.12 43.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7c9f846c-9ae5-4cba-84f0-a10d9a7f3a8d")
 	)
 	(wire
 		(pts
@@ -8149,13 +8121,13 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 43.18) (xy 207.01 43.18)
+			(xy 71.12 101.6) (xy 74.93 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d52c94b1-a0dc-48e9-b212-1ce964c9011c")
+		(uuid "d53751a1-cc60-4306-b7e0-d8af8928aebe")
 	)
 	(wire
 		(pts
@@ -8266,6 +8238,16 @@
 			(type default)
 		)
 		(uuid "e3a906ed-190c-4ca9-ac89-de54446620fe")
+	)
+	(wire
+		(pts
+			(xy 71.12 104.14) (xy 74.93 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3e0ce77-5792-4091-9e91-2d424b659c5d")
 	)
 	(wire
 		(pts
@@ -8409,16 +8391,6 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 46.99) (xy 207.01 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f1db3f4a-cce1-4d6e-b692-683b5c6edeef")
-	)
-	(wire
-		(pts
 			(xy 40.64 180.34) (xy 40.64 179.07)
 		)
 		(stroke
@@ -8556,6 +8528,16 @@
 			(type default)
 		)
 		(uuid "ff2adc13-0a41-47ac-8da6-ec608545d850")
+	)
+	(label "LAMP_TEST_LT"
+		(at 71.12 104.14 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "03308112-7d05-4c9a-93bb-454dbfae9718")
 	)
 	(label "SSD_C"
 		(at 111.76 127 0)
@@ -8697,16 +8679,6 @@
 		)
 		(uuid "475a975c-73d6-4d05-a45b-c87befa48542")
 	)
-	(label "MOSI"
-		(at 194.31 43.18 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "4b872aef-57da-4b93-88d0-daa96b48d72d")
-	)
 	(label "SSD_B"
 		(at 111.76 124.46 0)
 		(effects
@@ -8726,16 +8698,6 @@
 			(justify left bottom)
 		)
 		(uuid "4f3ab727-618d-4160-b648-c070e6351554")
-	)
-	(label "LAMP_TEST_LT"
-		(at 207.01 46.99 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "53ce4531-0a65-41fc-b2a6-4d41cc0a3ffc")
 	)
 	(label "GREEN_LED"
 		(at 111.76 149.86 0)
@@ -8867,16 +8829,6 @@
 		)
 		(uuid "82e6e9a1-5811-4662-ba34-d72a6d3d5a25")
 	)
-	(label "BLANKING_INPUT_BL"
-		(at 207.01 43.18 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "8d0b5de1-6816-4a06-ae6e-64facdd79c67")
-	)
 	(label "XTAL1"
 		(at 111.76 111.76 0)
 		(effects
@@ -8926,16 +8878,6 @@
 			(justify left bottom)
 		)
 		(uuid "9d3842b5-eddb-4055-810d-a61789bfa091")
-	)
-	(label "MISO"
-		(at 194.31 46.99 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a0311c97-03be-4f34-85d5-15422907de75")
 	)
 	(label "DEBUG_TXD"
 		(at 48.26 120.65 0)
@@ -9026,6 +8968,16 @@
 			(justify left bottom)
 		)
 		(uuid "d876d5e4-120f-4a4b-b60b-e04d63420a58")
+	)
+	(label "BLANKING_INPUT_BL"
+		(at 71.12 101.6 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "da5f68ec-0c6e-44d1-a506-bfb0ba05f871")
 	)
 	(label "SCK"
 		(at 111.76 109.22 0)
@@ -10194,85 +10146,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small_US")
-		(at 200.66 46.99 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "198269d7-1623-4565-a546-fccb1b24bb70")
-		(property "Reference" "R17"
-			(at 204.724 48.514 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1 1)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 197.866 48.514 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1 1)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 200.66 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 200.66 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small US symbol"
-			(at 200.66 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "63d0ea5f-fb68-4a25-acb1-5b4e8efaea37")
-		)
-		(pin "2"
-			(uuid "5cc828f3-0032-45be-bb8e-f35ca19c9b57")
-		)
-		(instances
-			(project "Atmega328p-DevBoard-Hardware"
-				(path "/5b5db2a6-3031-431d-a0f1-94476fdabf08"
-					(reference "R17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 243.84 44.45 0)
 		(unit 1)
@@ -10980,87 +10853,6 @@
 			(project "Atmega328p-DevBoard-Hardware"
 				(path "/5b5db2a6-3031-431d-a0f1-94476fdabf08"
 					(reference "#PWR025")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 186.69 144.78 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "3b0e6112-1fd5-455e-84f6-b79d6c82f0ff")
-		(property "Reference" "C14"
-			(at 180.34 143.002 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100uf"
-			(at 180.086 146.558 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 186.69 144.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 186.69 144.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 186.69 144.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "85e2d3fb-81fb-4536-87ad-f620926d5c7e")
-		)
-		(pin "2"
-			(uuid "6b4cb2d1-0966-491a-8375-eb42b6a573c4")
-		)
-		(instances
-			(project "Atmega328p-DevBoard-Hardware"
-				(path "/5b5db2a6-3031-431d-a0f1-94476fdabf08"
-					(reference "C14")
 					(unit 1)
 				)
 			)
@@ -11927,85 +11719,6 @@
 			(project "Atmega328p-DevBoard-Hardware"
 				(path "/5b5db2a6-3031-431d-a0f1-94476fdabf08"
 					(reference "C13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small_US")
-		(at 200.66 43.18 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "4b3a47e2-d7a6-4d07-8ba6-334fae701b56")
-		(property "Reference" "R16"
-			(at 204.724 44.704 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1 1)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 197.866 44.704 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1 1)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 200.66 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 200.66 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small US symbol"
-			(at 200.66 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e422ec19-dcce-4f46-828d-15de436d53cb")
-		)
-		(pin "2"
-			(uuid "9dcb5812-d34a-4a65-b81d-fb428926b026")
-		)
-		(instances
-			(project "Atmega328p-DevBoard-Hardware"
-				(path "/5b5db2a6-3031-431d-a0f1-94476fdabf08"
-					(reference "R16")
 					(unit 1)
 				)
 			)
@@ -16567,6 +16280,87 @@
 			(project "Atmega328p-DevBoard-Hardware"
 				(path "/5b5db2a6-3031-431d-a0f1-94476fdabf08"
 					(reference "C10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 186.69 144.78 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ef98b1db-7b2d-4cd4-865c-bd95aa7134a8")
+		(property "Reference" "C14"
+			(at 180.34 143.256 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100uf"
+			(at 179.832 147.066 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+			(at 186.69 144.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 186.69 144.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 186.69 144.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2da8e859-400d-4115-856e-41d886123a0f")
+		)
+		(pin "2"
+			(uuid "fbf9b9a9-a328-4f8e-b8b5-10e637d5d2c6")
+		)
+		(instances
+			(project "Atmega328p-DevBoard-Hardware"
+				(path "/5b5db2a6-3031-431d-a0f1-94476fdabf08"
+					(reference "C14")
 					(unit 1)
 				)
 			)
